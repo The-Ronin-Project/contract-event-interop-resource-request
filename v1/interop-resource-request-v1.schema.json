@@ -1,0 +1,30 @@
+{
+  "$id": "https://github.com/projectronin/ronin-contract-interop-resource-request/blob/main/v1/interop-resource-request-v1.schema.json",
+  "title": "Interop Resource Request",
+  "description": "This event represents a request from a non-interop source to load a resource from an ehr",
+  "type": "object",
+  "properties": {
+    "tenantId": {
+      "description": "The ID of the tenant to retrieve the resource",
+      "type": "string"
+    },
+    "resourceFHIRId": {
+      "description": "The FHIR ID associated to this resource.",
+      "type": "string"
+    },
+    "resourceType": {
+      "description": "The type of FHIR Resource, i.e. 'Patient'",
+      "type": "string"
+    },
+    "requestingService": {
+      "description": "The service requesting the resource",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tenantId",
+    "resourceType",
+    "resourceFHIRId",
+    "requestingService"
+  ]
+}
