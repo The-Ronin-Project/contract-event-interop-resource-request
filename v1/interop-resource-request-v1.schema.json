@@ -19,6 +19,10 @@
     "requestingService": {
       "description": "The service requesting the resource",
       "type": "string"
+    },
+    "flowOptions": {
+      "description": "Provides consumers options for how the processing flow should occur",
+      "$ref": "#/$defs/FlowOptions"
     }
   },
   "required": [
@@ -26,5 +30,21 @@
     "resourceType",
     "resourceFHIRId",
     "requestingService"
-  ]
+  ],
+  "$defs": {
+    "FlowOptions": {
+      "type": "object",
+      "properties": {
+        "disableDownstreamResources": {
+          "description": "If true, downstream resource loads will not be triggered after this load. For example, if false or unset and the request is for a Patient, resources that would be loaded based off the Patient will be loaded, while they would not be loaded if this value was set to true",
+          "type": "boolean"
+        },
+        "normalizationRegistryMinimumTime": {
+          "description": "Specifies a minimum date time associated to the normalization registry. If supplied, the load will ensure the normalization registry is using a version at least as recent as the provided date time.",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
 }

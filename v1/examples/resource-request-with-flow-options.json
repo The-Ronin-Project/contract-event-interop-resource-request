@@ -1,0 +1,10 @@
+{
+  "tenantId": "tenant123",
+  "resourceType": "Patient",
+  "resourceFHIRId": "1234565-132123-234234-234234",
+  "requestingService": "validationService",
+  "flowOptions": {
+    "disableDownstreamResources": true,
+    "normalizationRegistryMinimumTime": "2023-04-27T16:00:00+00:00"
+  }
+}
