@@ -39,7 +39,7 @@ jobs:
       nexus_token: ${{ secrets.NEXUS_RAW_TOKEN }}
 
   tag:
-    runs-on: self-hosted
+    runs-on: oci-shared
     needs: build_and_test
     steps:
       - uses: actions/checkout@v2
@@ -73,7 +73,7 @@ jobs:
       tag: ${{ steps.get-version.outputs.version }}
 
   release:
-    runs-on: self-hosted
+    runs-on: oci-shared
     needs: tag
     steps:
       - uses: actions/checkout@v2
